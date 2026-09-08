@@ -1,0 +1,29 @@
+{
+  "version": 2,
+  "services": {
+    "ai-orbit-frontend": {
+      "type": "frontend",
+      "path": "frontend",
+      "framework": "vite"
+    },
+    "ai-orbit-backend": {
+      "type": "backend",
+      "path": "backend",
+      "entrypoint": "app.main:app"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": {
+        "service": "ai-orbit-backend"
+      }
+    },
+    {
+      "source": "/(.*)",
+      "destination": {
+        "service": "ai-orbit-frontend"
+      }
+    }
+  ]
+}
