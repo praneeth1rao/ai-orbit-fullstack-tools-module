@@ -2,6 +2,7 @@
 __pycache__/
 *.pyc
 *.db
+!backend/tools.db
 node_modules/
 dist/
 .env
