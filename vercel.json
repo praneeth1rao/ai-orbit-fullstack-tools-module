@@ -1,14 +1,12 @@
 {
-  "version": 2,
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "services": {
     "ai-orbit-frontend": {
-      "type": "frontend",
-      "path": "frontend",
+      "root": "frontend/",
       "framework": "vite"
     },
     "ai-orbit-backend": {
-      "type": "backend",
-      "path": "backend",
+      "root": "backend/",
       "entrypoint": "app.main:app"
     }
   },
