@@ -1,5 +1,6 @@
 import os
 
+from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -27,10 +28,11 @@ def health():
     return {"status": "ok"}
 
 
-@app.on_event("startup")
-def on_startup() -> None:
+@asynccontextmanager
+async def lifespan(app: FastAPI):
     create_tables()
     _seed_if_needed()
+    yield
 
 
 def _seed_if_needed() -> None:
